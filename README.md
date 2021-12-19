@@ -18,4 +18,4 @@ This is a sample project created for freeCodeCamp Frontend Development Libraries
 ### Objective of freeCodeCamp assignment
 [Original project description from freeCodeCamp](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-javascript-calculator). 
 
-[Sample project on CodePen.io](https://codepen.io/freeCodeCamp/full/wgGVVX.).
+[Sample project on CodePen.io](https://codepen.io/freeCodeCamp/full/wgGVVX).
