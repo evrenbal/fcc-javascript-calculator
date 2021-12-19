@@ -1,0 +1,37 @@
+.display {
+  @apply text-white grid text-right p-3;
+  grid-template-rows: 3fr 1fr;
+  font-weight: 700;
+  background-color: rgba(0,0,0, 0.1);
+  width: 100%;
+  overflow: hidden;
+
+  > div {
+  }
+
+  .default {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  .rowTop {
+    @apply flex items-start overflow-hidden justify-end;
+    font-size: 3rem;
+    line-height: 4.5rem;
+    height: 9rem;
+    &.smaller {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+    &.smallest {
+      font-size: 1.5rem;
+      line-height: 2.25rem;
+      @apply items-end;
+    }
+  }
+
+  .rowBottom {
+
+  }
+}

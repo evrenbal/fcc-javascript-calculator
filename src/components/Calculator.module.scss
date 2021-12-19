@@ -1,0 +1,20 @@
+.calculator {
+  @apply grid grid-cols-1;
+  padding: 0.25rem;
+  border: 2px solid #000;
+
+  grid-template-rows: 1fr 2fr;
+  width: 20rem;
+  max-height: 40rem;
+
+  .keypad {
+    @apply grid grid-cols-4;
+    grid-gap: 0.125rem;
+    gap: 0.125rem;    
+  }
+}
+
+.button-span-2 {
+  @apply col-span-2;
+  padding: unset !important;
+}

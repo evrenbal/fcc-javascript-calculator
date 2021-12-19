@@ -1,0 +1,73 @@
+@use 'sass:list';
+@import 'sass/tailwind';
+@import 'sass/variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@mixin linear-background($deg, $colors)
+{
+  background-image: linear-gradient($deg, list.nth($colors,1), list.nth($colors,2)) !important;
+}
+
+@property --themecolor1 { syntax: '<color>'; initial-value: #fff; inherits: false; }
+@property --themecolor2 { syntax: '<color>'; initial-value: #fff; inherits: false; }
+@property --themecolor3 { syntax: '<color>'; initial-value: #fff; inherits: false; }
+@property --themecolor4 { syntax: '<color>'; initial-value: #fff; inherits: false; }
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+[class*=" color"], [class^="color"] {
+  @include linear-background(45deg, (var(--themecolor1), var(--themecolor2)));
+  transition: --themecolor1 1s ease-in-out, --themecolor2 1s ease-in-out, --themecolor3 1s ease-in-out;
+}
+
+
+@each $name, $color in $colorList {
+  .#{$name} {
+    --themecolor1: #{list.nth($color, 1)};
+    --themecolor2: #{list.nth($color, 2)};
+    --themecolor3: #{list.nth($color, 3)};
+    --themecolor4: #{list.nth($color, 4)};
+    &.backdrop::before {
+      background-color: #{list.nth($color, 4)};
+    }
+  }
+}
+
+
+.backdrop {
+  border-color: var(--themecolor3) !important;
+  &:before {
+    content:"";
+    @apply w-full h-full absolute top-0 left-0;
+    z-index: -1;
+    transition: all 1s ease-in;
+  }
+}
+
+.theme-selector {
+  display: flex;
+  top: 0;
+  margin-bottom: 1rem;
+  justify-content: center;
+  width: 20rem;
+
+  > div {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    margin: 0.25rem;
+    border: 1px solid rgba(255,255,255, 0.25);
+    cursor: pointer;
+  }
+}
